@@ -4,14 +4,14 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/xenial64"
     config.vm.hostname = "gitlab.local.dev"
-
+    
     config.vm.network :private_network, ip: "192.168.11.8"
     config.vm.network :forwarded_port, guest: 80, host: 8080
 
     config.vm.provider "virtualbox" do |vb|
         vb.name = "GitLab Server"
-        vb.memory = "2048"
-        vb.cpus = "2"
+        vb.memory = "8192"
+        vb.cpus = "4"
     end
 
     config.vm.provision :docker
