@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
         vb.name = "GitLab Server"
         vb.memory = "8192"
         vb.cpus = "4"
+
+        vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/ — timesync-set-threshold", 10000 ]
     end
 
     config.vm.provision :docker
